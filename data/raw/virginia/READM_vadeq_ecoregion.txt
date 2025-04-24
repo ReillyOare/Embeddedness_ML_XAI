@@ -1,3 +1,0 @@
-Created by E. Oare by spatally joining an ecoregion shapefile to the original datasets.
-
-Contains ecoregion and coordinate information.
