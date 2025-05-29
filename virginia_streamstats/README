@@ -1,0 +1,30 @@
+To follow the methods completed by the researcher, the order of the notebooks is:
+
+1. Preprocessing --> /data_preprocessing/
+1a. VADEQ_join_trim
+--> Joins original two datasets provided by VA DEQ for full dataset.
+
+2. Exploratory Data Analysis --> /eda/
+2a. VADEQ_EDA_and_Regression
+--> This was studied since the dataset has information that could be used to calculate bankfull shear velocity. Regression was performed using the hypothesized relationships defined by Czuba et al., 2022.
+
+3. Preprocessing --> /data_preprocessing/
+3a. StreamStats_VADEQ_Clean
+--> Loads dataset collected from the StreamStats Batch Processor based on the VA DEQ dataset provided. Joins two datasets (VA DEQ and StreamStats) and trims before exporting.
+
+2. Exploratory Data Analysis --> /eda/
+2a. VADEQ_EDA_and_Regression
+--> This was studied since the dataset has information that could be used to calculate bankfull shear velocity. Regression was performed using the hypothesized relationships defined by Czuba et al., 2022.
+2b. VADEQ_Stmsts_EDA
+--> Conducted EDA on joined dataframe of VA DEQ and StreamStats datasets. EDA conducted: temporal variation based on station, correlation EDA (pearson's r), scatterplots against target, histograms.
+
+
+3. Feature Engineering --> /data_preprocessing/
+1a. VADEQ_StreamStats_Feature_Engineering
+--> Applies transformations to necessary features for later model building using traditional statistical methods and power transformations. 
+
+4. Model Buildng --> /training/
+--> Builds and evaluates four different ML models (Random Forest, ANN, Gradient Boosting, Extreme Gradient Boosting)
+
+5. Evaluation --> /evaluation/
+--> Conducts accuracy, explainability analysis, etc. Provides all figures found in /results/figures/
