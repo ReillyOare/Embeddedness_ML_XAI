@@ -7,3 +7,7 @@ To follow the methods completed by the researcher, the order of the notebooks is
 2. Exploratory Data Analysis --> /eda/
 2a. usepa1819_eda
 ---> Includes selection of features process. Implements baseline model (power-law).
+
+3. Feature Engineering --> /data_preprocessing/
+3a. usepa_feature_engineering
+--> Analyzes selected features from Step 2 and applies transformations. Alsos employs undersampling given target bias.

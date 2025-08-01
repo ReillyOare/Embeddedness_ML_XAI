@@ -1,0 +1,202 @@
+**This Txt File was created to keep track of the results from various model runs for the EPA 2018-2019 dataset to provide evidence for the efficacy of the final model selected.**
+
+**Scenario 1:** 
+Incoming dataset:
+a) Feature Transformed with power transformers, etc.
+b) Trimmed to only include embeddedness <95% (~900 data points)
+c) Embeddedness was transformed using a quantile normal power transformer (then later inversed)
+d) LAT/LON were included and not transformed
+e) DBSCAN clusters were used as category dtypes with hyperparameters (eps=0.0187, min_samples=3)
+f) Distance to Centroid was included as float64 and not transformed
+g) Level 1 Ecoregions included as one-hot encoded features
+
+Results:
+Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.048009  13.618331  0.443881
+2       GBR  17.271225  13.838517  0.429534
+3      AdaB  18.240730  14.640982  0.363796
+4       FNN  18.105909  14.497178  0.368741
+
+**Scenario 2:**
+a) Feature Transformed with power transformers, etc.
+b) Trimmed to only include embeddedness <95% (~900 data points)
+c) Embeddedness was transformed using a quantile normal power transformer (then later inversed)
+d) LAT/LON were included and not transformed
+e) *NO* clustering used
+f) Level 1 Ecoregions included as one-hot encoded features
+
+Results:
+Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.068311  13.606115  0.442367
+2       GBR  17.296849  13.826425  0.427812
+3       XGB  17.017701  13.571146  0.445841
+4      AdaB  18.492243  14.789451  0.346876
+5       FNN  18.079923  14.659863  0.371330
+
+**Scenario 3:**
+a) Feature Transformed with power transformers, etc.
+b) Trimmed to only include embeddedness <95% (~900 data points)
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and not transformed
+e) DBSCAN clusters were used as category dtypes with hyperparameters (eps=0.0187, min_samples=3)
+f) Distance to Centroid was included as float64 and not transformed
+g) Level 1 Ecoregions included as one-hot encoded features
+
+Results:
+Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  16.809708  13.788989  0.459759
+2       GBR  16.592051  13.555428  0.474033
+3      AdaB  17.739544  14.727452  0.399567
+4       FNN  18.482078  15.179494  0.346035
+
+**Scenario 4:**
+a) Feature Transformed with power transformers, etc.
+b) Trimmed to only include embeddedness <95% (~900 data points)
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and not transformed
+e) *NO* clustering included
+g) Level 1 Ecoregions included as one-hot encoded features
+
+Results:
+ Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  16.928401  13.882292  0.452288
+2       GBR  16.865469  13.746162  0.455704
+3       XGB  16.519894  13.310171  0.478590
+4      AdaB  17.773190  14.786621  0.396843
+5       FNN  18.702229  15.440807  0.329460
+
+**Scenario 5:**
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and not transformed
+e) DBSCAN clusters were used as category dtypes with hyperparameters (eps=0.014, min_samples=3)
+g) Level 1 Ecoregions included as one-hot encoded features
+
+Results:
+Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.578759  14.156737  0.523444
+2       GBR  17.727666  14.142273  0.515027
+3       XGB  17.368708  13.741915  0.534074
+4      AdaB  18.843504  15.691994  0.452603
+5       FNN  19.501213  15.975706  0.414878
+
+**Scenario 6:**
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and not transformed
+e) *NO* clustering used
+g) Level 1 Ecoregions included as one-hot encoded features
+
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.675213  14.218348  0.518021
+2       GBR  17.855640  14.252755  0.506981
+3       XGB  17.484447  13.995424  0.527689
+4      AdaB  18.859642  15.549874  0.451638
+5       FNN  19.618032  16.059924  0.407747
+
+**Scenario 7:** --> Big Change!
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and not transformed
+e) Physiographic provinces were joined to the dataset in ArcGIS Pro and matched to 'division' (8 total matched)
+f) *NO* Ecoregions.
+
+Results:
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.753984  14.248751  0.513603
+2       GBR  17.816588  14.061812  0.508073
+3       XGB  17.349365  13.832682  0.535255
+4      AdaB  18.831097  15.551305  0.453147
+5       FNN  19.566557  15.950177  0.410523
+
+**Scenario 8:**
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and *WERE* transformed with RobustScaler object
+e) Physiographic provinces were joined to the dataset in ArcGIS Pro and matched to 'division' (8 total matched)
+f) Physiographic provinces were *ONE-HOT ENCODED*
+f) *NO* Ecoregions.
+
+Results:
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.526257  14.067204  0.525841
+2       GBR  17.804009  14.271646  0.510551
+3       XGB  17.495529  13.962778  0.527394
+4      AdaB  18.866975  15.697053  0.451569
+5       FNN  18.428120  14.924230  0.477984
+
+**Scenario 9:**
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included
+e) *NO* scaling of any values (other than for FNN)
+f) Physiographic provinces were joined to the dataset in ArcGIS Pro and matched to 'division' (8 total matched)
+g) Physiographic provinces were *ONE-HOT ENCODED*
+h) *NO* Ecoregions.
+
+Results:
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.526257  14.067204  0.525841
+2       GBR  17.804009  14.271646  0.510551
+3       XGB  17.495529  13.962778  0.527394
+4      AdaB  18.866975  15.697053  0.451569
+5       FNN  17.870606  14.528359  0.508989
+
+**Scenario 10:**
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were *NOT* included
+e) Scaling of all numerical values
+f) Physiographic provinces were joined to the dataset in ArcGIS Pro and matched to 'division' (8 total matched)
+g) Physiographic provinces were *ONE-HOT ENCODED*
+h) *NO* Ecoregions.
+
+Results:
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.743593  14.253258  0.513837
+2       GBR  18.036107  14.532055  0.496723
+3       XGB  17.623353  14.107359  0.520979
+4      AdaB  18.914487  15.577321  0.447943
+5       FNN  17.760423  14.318380  0.514592
+
+**Scenario 11:**
+a) Feature Transformed with power transformers, etc.
+b) *NO* Trimming of dataset --> full dataset with ~1,200 points
+c) *NO* transformation of target embeddedness
+d) LAT/LON were included and not transformed
+e) *NO* clustering included
+f) Physiographic Divisions were *ONE-HOT ENCODED*
+g) No data was scaled (except for FNN)
+
+Results:
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.506505  14.105231  0.528269
+2       GBR  17.584265  13.997944  0.524685
+3       XGB  17.249244  13.632051  0.542197
+4      AdaB  18.601188  15.516146  0.467682
+
+**Scenario 12:**
+--> Exact same as Scenario 11 but all numerial features (including LAT/LON) are scaled
+      Model    CV RMSE     CV MAE     CV R2
+0  Baseline  25.166666  19.686000  0.000000
+1        RF  17.506505  14.105231  0.528269
+2       GBR  17.584265  13.997944  0.524685
+3       XGB  17.249244  13.632051  0.542197
+4      AdaB  18.601188  15.516146  0.467682
