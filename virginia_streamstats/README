@@ -16,12 +16,14 @@ To follow the methods completed by the researcher, the order of the notebooks is
 4a. VADEQ_Strmsts_EDA
 --> Looking at joined field data and remotely sensed data from StreamStats results. Includes selection of features process.
 
-3. Feature Engineering --> /data_preprocessing/
-1a. VADEQ_StreamStats_Feature_Engineering
+5. Feature Engineering --> /data_preprocessing/
+5a. VADEQ_StreamStats_Feature_Engineering
 --> Applies transformations to necessary features for later model building using traditional statistical methods and power transformations. 
 
-4. Model Buildng --> /training/
---> Builds and evaluates four different ML models (Random Forest, ANN, Gradient Boosting, Extreme Gradient Boosting)
+6. Model Building --> /training/
+6a. VADEQ_StreamStats_Model_Building
+--> Builds and evaluates four different ML models (Random Forest, FNN, Gradient Boosting, Extreme Gradient Boosting)
 
-5. Evaluation --> /evaluation/
---> Conducts accuracy, explainability analysis, etc. Provides all figures found in /results/figures/
+7. Evaluation --> /evaluation/
+7a. VADEQ_StreamStats_Evaluation
+--> Conducts accuracy, explainability analysis, etc. on selected model. Provides all figures found in /results/figures/

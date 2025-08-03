@@ -11,3 +11,11 @@ To follow the methods completed by the researcher, the order of the notebooks is
 3. Feature Engineering --> /data_preprocessing/
 3a. usepa_feature_engineering
 --> Analyzes selected features from Step 2 and applies transformations. Alsos employs undersampling given target bias.
+
+4. Model Building --> /training/
+4a. USEPA_1819_Model_Building
+--> Builds and evaluates four different ML models (Random Forest, FNN, Gradient Boosting, Extreme Gradient Boosting)
+
+5. Evaluation --> /evaluation/
+5a. USEPA_1819_Evaluation
+--> Conducts accuracy, explainability analysis, etc. on selected model. Provides all figures found in /results/figures/
